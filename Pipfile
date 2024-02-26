@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = false
+name = "pip_conf_index_global"
+
+[packages]
+requests = "*"
+tqdm = "*"
+numpy = "*"
+torch = "*"
+torchvision = "*"
+click = "*"
+annoy = "*"
+python-dotenv = "*"
+
+[dev-packages]
+ipykernel = "*"
+pytest = "*"
+ruff = "*"
+pre-commit = "*"
+commitizen = "*"
+pylint = "*"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+pipeline = "python src build-vector-db --config_path 'configs/pipeline/basic.yml'"
+git_hooks_install = "pre-commit install"
+git_hooks_update = "pre-commit autoupdate"
+git_hooks_run = "pre-commit run --all-files"

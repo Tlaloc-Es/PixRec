@@ -1,0 +1,7 @@
+pipeline:
+  steps:
+    image-embeddings:
+      selected: Resnet50
+  input:
+    path: pictures
+    format: jpg
