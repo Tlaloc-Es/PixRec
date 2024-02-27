@@ -12,6 +12,7 @@ torchvision = "*"
 click = "*"
 annoy = "*"
 python-dotenv = "*"
+pyyaml = "*"
 
 [dev-packages]
 ipykernel = "*"

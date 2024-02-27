@@ -2,6 +2,12 @@ pipeline:
   steps:
     image-embeddings:
       selected: Resnet50
+  annoy-config:
+    f: 2048
+    metric: angular
+    n_trees: 10
+    search_k: 100
   input:
     path: pictures
     format: jpg
+    output: embeddings.ann
