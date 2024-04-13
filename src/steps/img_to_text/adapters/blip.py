@@ -1,4 +1,7 @@
+from typing import Union
+
 import cv2
+import numpy as np
 import torch
 from transformers import BlipForConditionalGeneration, BlipProcessor
 
@@ -18,9 +21,10 @@ class Blip(ImageToText):
             self.device
         )
 
-    def describe(self, image_path: str) -> str:
-        image = cv2.imread(image_path)
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    def describe(self, image: Union[str, np.array]) -> str:
+        if isinstance(image, str):
+            image = cv2.imread(image)
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         inputs = self.processor(image, return_tensors="pt").to(self.device)
 
         out = self.model.generate(**inputs)
