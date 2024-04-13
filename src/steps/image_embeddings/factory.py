@@ -1,5 +1,5 @@
+from src.steps.image_embeddings.adapters import Resnet50EmbeddingCalculator
 from src.steps.image_embeddings.adapters.interface import EmbeddingCalculator
-from src.steps.image_embeddings.adapters.resnet50 import Resnet50EmbeddingCalculator
 
 
 def EmbeddingsGeneratorFactory(embeddings_generator: str) -> EmbeddingCalculator:

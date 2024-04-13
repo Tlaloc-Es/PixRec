@@ -1,0 +1,8 @@
+pipeline:
+  output_path: output
+  input_path: ./datasets/deepfashion2/train-002/train/image/**.jpg
+  steps:
+    image-segmentation:
+      selected: SAM
+    img-to-text:
+      selected: Blip

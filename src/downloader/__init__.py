@@ -5,6 +5,7 @@ import tarfile
 from pathlib import Path
 
 import requests
+from git import Repo
 from tqdm import tqdm
 
 
@@ -89,3 +90,33 @@ class Downloader:
                 for chunk in r.iter_content(chunk_size=8192):
                     f.write(chunk)
                     pbar.update(len(chunk))
+
+
+class DownloaderGit:
+    """A class to download files from the internet."""
+
+    def download(
+        self,
+        out_path: str,
+        git_repo_url: str,
+    ) -> str:
+        """Download a file from the provided URL and store it locally.
+
+        Args:
+            model_name (str): Name of the model.
+            model_hash (str): Hash of the expected model file.
+            url_download (str): URL from where to download the model.
+
+        Returns:
+            str: Path to the downloaded model file.
+        """
+        output_path = Path.home() / ".pixrec" / out_path
+        if os.path.exists(output_path):
+            repo = Repo(output_path)
+            origin = repo.remote(name="origin")
+            origin.pull()
+        else:
+            os.makedirs(output_path, exist_ok=True)
+            Repo.clone_from(git_repo_url, output_path)
+
+        return output_path

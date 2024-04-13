@@ -1,0 +1,5 @@
+pipeline:
+  input_path: ./datasets/deepfashion2/train-002/train/image/**.jpg
+  steps:
+    img-to-text:
+      selected: Blip

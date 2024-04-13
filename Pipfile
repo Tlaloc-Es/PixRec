@@ -13,6 +13,14 @@ click = "*"
 annoy = "*"
 python-dotenv = "*"
 pyyaml = "*"
+opencv-python = "*"
+pycocotools = "*"
+matplotlib = "*"
+onnxruntime = "*"
+onnx = "*"
+transformers = "*"
+gitpython = "*"
+segment-anything = {editable = true, git = "https://github.com/facebookresearch/segment-anything.git"}
 
 [dev-packages]
 ipykernel = "*"
@@ -21,12 +29,16 @@ ruff = "*"
 pre-commit = "*"
 commitizen = "*"
 pylint = "*"
+notebook = "*"
 
 [requires]
 python_version = "3.9"
 
 [scripts]
-pipeline = "python src build-vector-db --config_path 'configs/pipeline/basic.yml'"
+pipeline = "python src pipeline --config_path 'configs/pipeline/pipeline.yml'"
+pipeline_img_to_text = "python src img-to-text --config_path 'configs/pipeline/img_to_text.yml'"
+pipeline_segment = "python src segment --config_path 'configs/pipeline/segment.yml'"
+pipeline_vector = "python src build-vector-db --config_path 'configs/pipeline/build_vector_db.yml'"
 git_hooks_install = "pre-commit install"
 git_hooks_update = "pre-commit autoupdate"
 git_hooks_run = "pre-commit run --all-files"
