@@ -13,7 +13,6 @@ click = "*"
 annoy = "*"
 python-dotenv = "*"
 pyyaml = "*"
-opencv-python = "*"
 pycocotools = "*"
 matplotlib = "*"
 onnxruntime = "*"
@@ -21,6 +20,8 @@ onnx = "*"
 transformers = "*"
 gitpython = "*"
 segment-anything = {editable = true, git = "https://github.com/facebookresearch/segment-anything.git"}
+salesforce-lavis = "*"
+opencv-python = "==4.7.0.72"
 
 [dev-packages]
 ipykernel = "*"
